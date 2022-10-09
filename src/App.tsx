@@ -25,7 +25,7 @@ function App() {
               />
               <Route path="/detail/:movieId" element={<Detail />} />
               <Route path="/rated" element={<Rated />} />
-              <Route path="*" element={<Navigate to="/search" replace />} />
+              <Route path="/" element={<Navigate to="/search" replace />} />
             </Routes>
           </Stack>
         </BrowserRouter>

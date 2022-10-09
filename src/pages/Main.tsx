@@ -21,7 +21,7 @@ export const Main = () => {
   );
   const [search, setSearch] = useState<{
     title: string;
-    year?: string | number;
+    year: string | number;
   }>({
     title: movieTitle ?? "",
     year: isNaN(Number(movieYear)) ? "" : Number(movieYear),

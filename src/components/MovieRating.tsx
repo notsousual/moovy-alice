@@ -1,6 +1,6 @@
 import { Rating } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { addRated } from "../features/RatedSlice";
+import { addRated } from "../redux/RatedSlice";
 import { useState } from "react";
 
 export const MovieRating = ({ row }: any) => {
@@ -8,14 +8,14 @@ export const MovieRating = ({ row }: any) => {
   const rated = useSelector((state: any) => state.rated.rated);
   const ourMovie = rated.find((x: any) => x.id === row.id);
 
-  const [value, setValue] = useState<number | null>(
-    ourMovie ? ourMovie.Rating ?? null : null
-  );
-
   const dispatch = useDispatch();
   const handleAddition = (movie: any) => {
     dispatch(addRated(movie));
   };
+
+  const [value, setValue] = useState<number | null>(
+    ourMovie ? ourMovie.Rating ?? null : null
+  );
 
   return (
     <>

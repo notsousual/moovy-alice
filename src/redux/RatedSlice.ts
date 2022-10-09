@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+const initialState: { rated: any[] } = {
   rated: [],
 };
 
@@ -8,9 +8,9 @@ export const ratedSlice = createSlice({
   name: "rated",
   initialState,
   reducers: {
-    addRated: (state: any, action) => {
+    addRated: (state, action) => {
       const copiedMovie = Object.assign({}, action.payload);
-      let isNew = true;
+      let isNew: boolean = true;
 
       state.rated = state.rated.map((movie: any) => {
         if (movie.id === copiedMovie.id) {
