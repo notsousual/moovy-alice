@@ -1,57 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Main } from "./pages/Main";
+import { Header } from "./components/Header";
+import { Stack, ThemeProvider } from "@mui/material";
+import { theme } from "./theme/theme";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Rated } from "./pages/Rated";
+import { Detail } from "./pages/Detail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Stack height={"100vh"} px={2} pt={1} pb={2}>
+        <BrowserRouter>
+          <Header />
+          <Stack height={"100%"} alignItems={"center"}>
+            <Routes>
+              <Route path={`/`} element={<Main />} />
+              <Route path={`/search/:movieTitle`} element={<Main />} />
+              <Route
+                path={`/search/:movieTitle/:movieYear`}
+                element={<Main />}
+              />
+              <Route path="/detail/:movieId" element={<Detail />} />
+              <Route path="/rated" element={<Rated />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Stack>
+        </BrowserRouter>
+      </Stack>
+    </ThemeProvider>
   );
 }
 
