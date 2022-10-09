@@ -1,5 +1,5 @@
 
-# [DEMO] (https://moovy-alice.netlify.app/)
+# [DEMO](https://moovy-alice.netlify.app/)
 https://moovy-alice.netlify.app/
 
 Material UI, Redux, Typescript are used. The design & markup are adaptive. Enjoy!
@@ -8,14 +8,14 @@ Material UI, Redux, Typescript are used. The design & markup are adaptive. Enjoy
 
 The OMDb API is generally kind of buggy and bumpy, so I have some workarounds in the project regarding the missing typing scheme, incorrect response statuses, etc.
 
-Genre filter:
-- The genre isn't provided in the search results request list ([example] (https://www.omdbapi.com/?apikey=4811b5b3&s=Bat)).
- However, it's provided in the search by name/IMDb ID result, which always returns just !!1 item ([example] (https://www.omdbapi.com/?apikey=4811b5b3&t=Bat&plot=full)). It's not guaranteed IMDb ID is always provided and it's not safe to just rely on the movie title, so I didn't implement the filter.
+### Genre filter:
+- The genre isn't provided in the search results request list ([example](https://www.omdbapi.com/?apikey=4811b5b3&s=Bat)).
+ However, it's provided in the search by name/IMDb ID result, which always returns just !!1 item ([example](https://www.omdbapi.com/?apikey=4811b5b3&t=Bat&plot=full)). It's not guaranteed IMDb ID is always provided and it's not safe to just rely on the movie title, so I didn't implement the filter.
 
-Pagination:
+### Pagination:
 -The total number of pages isn't provided by the API (neither the maximum amount of items per page for the method or e.g. next/prev page index), so I thought it was unreasonable to 'shoot blindly' and do a buggy implementation of calculating an approximate page amount using "totalResults". The app always uses default JSON if the 'page' parameter isn't added to the query.
 
-Response status:
+### Response status:
 - The response status of the request is always 200 (OK) if you use the right API key,
 even if the service can't find the movie by its name, doesn't return larger JSONs with too many results, etc.
 
