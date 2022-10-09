@@ -2,7 +2,10 @@
 # [DEMO](https://moovy-alice.netlify.app/)
 https://moovy-alice.netlify.app/
 
-Material UI, Redux, Typescript are used. The design & markup are adaptive. Enjoy!
+Material UI, Redux, Typescript are used. The design & markup are adaptive. 
+Users can change the movies' rating on every page.
+
+Enjoy!
 
 ## :face_with_head_bandage: BUGGY API
 
@@ -16,7 +19,7 @@ The OMDb API is generally kind of buggy and bumpy, so I have some workarounds in
 - Generally handled by Mui Datagrid
 - API issue: The total number of pages for all results isn't provided by the API (neither the maximum amount of items per page for the method or e.g. next/prev page index), so I thought it was unreasonable to 'shoot blindly' and do a buggy implementation of calculating an approximate page size using "totalResults". The app always uses default response without pagination (I figured it shows the 1st result page).
 
-### Response status workaround:
+### :robot: Response status workaround:
 - The response status of the request is always 200 (OK) if you use the right API key,
 even if the service can't find the movie by its name, doesn't return larger JSONs with too many results, etc.
 
