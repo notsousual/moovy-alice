@@ -21,7 +21,7 @@ export const Main = () => {
   );
   const [search, setSearch] = useState<{
     title: string;
-    year: string | number;
+    year?: string | number;
   }>({
     title: movieTitle ?? "",
     year: isNaN(Number(movieYear)) ? "" : Number(movieYear),
@@ -31,7 +31,14 @@ export const Main = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log("reload");
+    if (movieTitle) {
+      setSearch({ title: movieTitle, year: movieYear ?? "" });
+      setTitle(movieTitle);
+      setYear(movieYear ?? "");
+    }
+  }, [movieTitle, movieYear]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -39,10 +46,9 @@ export const Main = () => {
         fetch(
           `https://www.omdbapi.com/?apikey=4811b5b3&s=${search.title}${
             search.year ? `&y=${search.year}` : ""
-          }&plot=full`
+          }`
         )
           .then((response) => {
-            console.log(response);
             return response.json();
           })
           .then((data) => {
@@ -54,7 +60,7 @@ export const Main = () => {
                   : (data["Search"][i]["id"] = i);
               }
 
-              // ^^^ Because the response status is always 200 (OK) if you use the right API key, 
+              // ^^^ Because the response status is always 200 (OK) if you use the right API key,
               // even if the service can't find the movie by its name, doesn't return larger JSONs, there are too many results, etc.
               // you can test it out by yourself
 

@@ -78,7 +78,7 @@ export const MovieTable = ({ rows }: { rows: any[] }) => {
     },
   ];
   return (
-    <Box width={"100%"} height={"100%"} maxWidth={1000} mt={6}>
+    <Box width={"100%"} height={"100%"} maxWidth={1000} my={4}>
       <DataGrid
         sx={tableStyles}
         rows={rows}

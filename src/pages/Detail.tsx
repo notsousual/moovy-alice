@@ -5,13 +5,13 @@ import { useParams } from "react-router-dom";
 import { MovieRating } from "../components/MovieRating";
 
 export const Detail = () => {
+  const { movieId } = useParams();
+
   const [content, setContent] = useState<any>();
   //any is used because https://www.omdbapi.com/ API doesnt provide schemes for typing the JSON
 
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  let { movieId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {

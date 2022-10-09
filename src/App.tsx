@@ -17,7 +17,7 @@ function App() {
           <Header />
           <Stack height={"100%"} alignItems={"center"}>
             <Routes>
-              <Route path={`/`} element={<Main />} />
+              <Route path={`/search`} element={<Main />} />
               <Route path={`/search/:movieTitle`} element={<Main />} />
               <Route
                 path={`/search/:movieTitle/:movieYear`}
@@ -25,7 +25,7 @@ function App() {
               />
               <Route path="/detail/:movieId" element={<Detail />} />
               <Route path="/rated" element={<Rated />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
+              <Route path="*" element={<Navigate to="/search" replace />} />
             </Routes>
           </Stack>
         </BrowserRouter>
