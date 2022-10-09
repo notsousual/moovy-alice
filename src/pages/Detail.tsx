@@ -11,12 +11,11 @@ export const Detail = () => {
   //any is used because https://www.omdbapi.com/ API doesnt provide schemes for typing the JSON
 
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
         fetch(`https://www.omdbapi.com/?apikey=4811b5b3&i=${movieId}&plot=full`)
           .then((response) => response.json())
           .then((data) => {
@@ -40,7 +39,7 @@ export const Detail = () => {
 
   return (
     <Stack mt={4}>
-      {loading || !content ? (
+      {loading ? (
         <CircularProgress />
       ) : error ? (
         <>
@@ -80,7 +79,7 @@ export const Detail = () => {
             />
           )}
 
-          <Box maxWidth={500}>
+          <Box maxWidth={500} mb={4}>
             {content.Title && (
               <Typography variant="h4" fontWeight={700}>
                 {content.Title}
