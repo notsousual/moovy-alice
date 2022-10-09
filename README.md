@@ -10,7 +10,7 @@ The OMDb API is generally kind of buggy and bumpy, so I have some workarounds in
 
 ### Genre filter:
 - The genre isn't provided in the search results request list ([example](https://www.omdbapi.com/?apikey=4811b5b3&s=Bat)).
- However, it's provided in the search by name/IMDb ID result, which always returns **bjust !!1 item**b ([example](https://www.omdbapi.com/?apikey=4811b5b3&t=Bat&plot=full)). It's not guaranteed IMDb ID is always provided and it's not safe to just rely on the movie title, so I didn't implement the filter.
+ However, it's provided in the search by name/IMDb ID result, which always returns **bjust !!1 item** ([example](https://www.omdbapi.com/?apikey=4811b5b3&t=Bat&plot=full)). It's not guaranteed IMDb ID is always provided and it's not safe to just rely on the movie title, so I didn't implement the filter.
 
 ### Pagination:
 - The total number of pages isn't provided by the API (neither the maximum amount of items per page for the method or e.g. next/prev page index), so I thought it was unreasonable to 'shoot blindly' and do a buggy implementation of calculating an approximate page amount using "totalResults". The app always uses default JSON if the 'page' parameter isn't added to the query.
