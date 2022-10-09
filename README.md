@@ -4,18 +4,19 @@ https://moovy-alice.netlify.app/
 
 Material UI, Redux, Typescript are used. The design & markup are adaptive. Enjoy!
 
-## BUGGY API
+## :face_with_head_bandage: BUGGY API
 
 The OMDb API is generally kind of buggy and bumpy, so I have some workarounds in the project regarding the missing typing scheme, incorrect response statuses, etc.
 
-### Genre filter:
+### :exclamation: Genre filter:
 - The genre isn't provided in the search results request list ([example](https://www.omdbapi.com/?apikey=4811b5b3&s=Bat)).
  However, it's provided in the search by name/IMDb ID result, which always returns just !!1 item ([example](https://www.omdbapi.com/?apikey=4811b5b3&t=Bat&plot=full)). It's not guaranteed IMDb ID is always provided and it's not safe to just rely on the movie title, so I didn't implement the filter.
 
-### Pagination:
-- The total number of pages isn't provided by the API (neither the maximum amount of items per page for the method or e.g. next/prev page index), so I thought it was unreasonable to 'shoot blindly' and do a buggy implementation of calculating an approximate page amount using "totalResults". The app always uses default response without pagination.
+### :books: Pagination:
+- Generally handled by Mui Datagrid
+- API issue: The total number of pages for all results isn't provided by the API (neither the maximum amount of items per page for the method or e.g. next/prev page index), so I thought it was unreasonable to 'shoot blindly' and do a buggy implementation of calculating an approximate page size using "totalResults". The app always uses default response without pagination (I figured it shows the 1st result page).
 
-### Response status:
+### Response status workaround:
 - The response status of the request is always 200 (OK) if you use the right API key,
 even if the service can't find the movie by its name, doesn't return larger JSONs with too many results, etc.
 
