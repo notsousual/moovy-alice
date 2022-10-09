@@ -13,7 +13,7 @@ export const Header = () => {
       alignItems={"center"}
     >
       <Link to="/">
-        <img alt={"Moovy logo"} src={"/Group.png"} loading="lazy"></img>
+        <img alt={"Moovy logo"} src={"/moovy.svg"}></img>
       </Link>
       <Tooltip
         title={
