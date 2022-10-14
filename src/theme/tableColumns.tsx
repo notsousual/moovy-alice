@@ -32,6 +32,7 @@ export const columns: GridColDef[] = [
   {
     field: "Title",
     flex: 1,
+    minWidth: 200,
     headerName: "Title",
     headerAlign: "left",
   },
